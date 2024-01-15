@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { MailOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
 import type { MenuProps } from "antd";
-import { Menu, Layout, ConfigProvider } from "antd";
+import { Menu, Layout, ConfigProvider, Button } from "antd";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import About from "../components/about";
 import MainArea from "../components/mainArea";
@@ -13,60 +10,22 @@ import vtxLogo from "../assets/vxtKorea.png";
 import vtxLogo2 from "../assets/vxtLogo.png";
 import TalentGrow from "../components/talentGrow";
 import PartnerCompany from "../components/partnerCompany";
-import Contact from "../components/contact";
+import DashboardFooter from "../components/footer";
+import Marquee from "react-fast-marquee";
+import DashBoardMenu from "../data/dashBoardItems";
+import { link } from "fs";
 
 const { Header, Content, Footer } = Layout;
 
-const menuStyle = {
-  fontWeight: "bold",
-  fontSize: "16px",
+const linkStyle = {
+  textDecoration: "none",
+  color: "black",
+  fontSize: "18px",
 };
-
-const menuItems: MenuProps["items"] = [
-  {
-    key: "about",
-    label: (
-      <Link to="about" style={menuStyle}>
-        About
-      </Link>
-    ),
-  },
-  {
-    key: "mainarea",
-    label: (
-      <Link to="mainarea" style={menuStyle}>
-        Business
-      </Link>
-    ),
-  },
-  {
-    key: "talentdevelopment",
-    label: (
-      <Link to="talentdevelopment" style={menuStyle}>
-        Talent Development
-      </Link>
-    ),
-  },
-  {
-    key: "partners",
-    label: (
-      <Link to="partners" style={menuStyle}>
-        Partners
-      </Link>
-    ),
-  },
-  {
-    key: "contact",
-    label: (
-      <Link to="contact" style={menuStyle}>
-        Contact
-      </Link>
-    ),
-  },
-];
 
 function DashBoard() {
   const [current, setCurrent] = useState("mail");
+  const [mailAcitve, setMailActive] = useState(true);
 
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
@@ -104,24 +63,58 @@ function DashBoard() {
               </div>
             </NavLink>
           </div>
-          <ConfigProvider
-            theme={{
-              components: {
-                Menu: {
-                  horizontalItemSelectedColor: "rgb(111,111,111)",
-                },
-              },
+          <div
+            style={{
+              marginTop: "0.5%",
+              display: "flex",
+              width: "40%",
+              justifyContent: "space-between",
+              fontWeight: "bold",
             }}
           >
-            <Menu
-              onClick={onClick}
-              selectedKeys={[current]}
-              mode="horizontal"
-              style={{ backgroundColor: "transparent" }}
-              items={menuItems}
-              disabledOverflow={true}
-            />
-          </ConfigProvider>
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
+            >
+              <Link style={linkStyle} to="about">
+                About
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
+            >
+              <Link style={linkStyle} to="mainarea">
+                Business
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
+            >
+              <Link style={linkStyle} to="talentdevelopment">
+                Talent Development
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              onHoverStart={(e) => {}}
+              onHoverEnd={(e) => {}}
+            >
+              <Link style={linkStyle} to="partners">
+                Partners
+              </Link>
+            </motion.div>
+            <Button style={{ marginTop: "3%", marginLeft: "2%" }}>
+              <MailOutlined />
+            </Button>
+          </div>
         </Header>
       </Layout>
       <Routes>
@@ -129,9 +122,20 @@ function DashBoard() {
         <Route path="/mainarea" element={<MainArea />} />
         <Route path="/talentdevelopment" element={<TalentGrow />} />
         <Route path="/partners" element={<PartnerCompany />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<About />} />
       </Routes>
+      <div
+        style={{
+          backgroundColor: "black",
+          fontSize: "25px",
+          color: "rgb(186,186,186)",
+        }}
+      >
+        <Marquee autoFill={true} speed={120}>
+          <p style={{ marginRight: "50px" }}>Hello - Let's Connect</p>
+        </Marquee>
+      </div>
+      <DashboardFooter />
     </div>
   );
 }
