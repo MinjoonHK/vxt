@@ -1,0 +1,32 @@
+.flipContainer {
+  width: 150px;
+  height: 180px;
+  /*        부모의 자식 요소가 3차원의 애니메이션 효과를 가질때, 300px의 거리에서 보는 원근감을 줌*/
+  perspective: 300px;
+}
+
+.flipContainer .item {
+  width: 150px;
+  height: 180px;
+  border: 1px solid #828282;
+  font-size: 35px;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+.flipContainer .item.front {
+  position: absolute;
+  transform: rotateY(0deg);
+}
+
+.flipContainer:hover .item.front {
+  transform: rotateY(180deg);
+}
+
+.flipContainer .item.back {
+  transform: rotateY(-180deg);
+}
+
+.flipContainer:hover .item.back {
+  transform: rotateY(0deg);
+}

@@ -1,11 +1,15 @@
-import React from "react";
-import { Carousel, Divider } from "antd";
-import img1 from "../assets/img2.jpg";
-import vtx1 from "../assets/vxt1.jpg";
-import vtx2 from "../assets/vxt2.jpg";
-import vtx3 from "../assets/vxt3.jpg";
+import React, { useEffect, useState } from "react";
+import { Button, Carousel, Divider } from "antd";
+import img1 from "../assets/img/img2.jpg";
+import vtx1 from "../assets/img/vxt1.png";
+import vtx2 from "../assets/img/vxt2.png";
+import vtx3 from "../assets/img/vxt5.png";
 
 import { Col, Row } from "antd";
+import { ArrowUpOutlined, MailOutlined } from "@ant-design/icons";
+import MailModal from "./mailModal";
+import { BarChart } from "./barChart";
+import PieChart from "./pieChart2021";
 
 const contentStyle: React.CSSProperties = {
   margin: 0,
@@ -14,34 +18,46 @@ const contentStyle: React.CSSProperties = {
   textAlign: "center",
 };
 
+const importedImages = [vtx2, vtx1, vtx3, img1];
+
 function About() {
-  const onChange = (currentSlide: number) => {
-    console.log(currentSlide);
+  const [isVisible, setIsVisible] = useState(false);
+  const [mailOpen, setMailOpen] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
   };
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
 
   return (
     <div>
       <Carousel autoplay={true} dots={false}>
-        <div>
-          <h3 style={contentStyle}>
-            <img style={{ height: "450px", width: "100%" }} src={vtx1} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <img style={{ height: "450px", width: "100%" }} src={vtx2} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <img style={{ height: "450px", width: "100%" }} src={vtx3} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <img style={{ height: "450px", width: "100%" }} src={img1} />
-          </h3>
-        </div>
+        {importedImages.map((images) => {
+          return (
+            <div>
+              <h3 style={contentStyle}>
+                <img style={{ height: "450px", width: "100%" }} src={images} />
+              </h3>
+            </div>
+          );
+        })}
       </Carousel>
       <div
         style={{
@@ -69,12 +85,12 @@ function About() {
         style={{
           marginLeft: "10%",
           marginRight: "10%",
-          marginBottom: "5%",
+          marginBottom: "2%",
           marginTop: "5%",
         }}
       >
         <div>
-          <p style={{ fontSize: "20px" }}>
+          <p style={{ fontSize: "20px", marginBottom: "5%" }}>
             VXT 트레이닝 센터는 국제적인 전문가와 교사들을 초청하여 고객의
             미래를 위해 유럽 표준에 따른 기술을 교육하는 과정을 통해 인재를
             양성합니다. 이러한 종합적인 장점으로 인해 우리는 국내 및 전 세계
@@ -97,7 +113,86 @@ function About() {
             세계의 다양한 기업을 위해 인력 품질을 효과적으로 관리해왔습니다.
           </p>
         </div>
+
+        <div>
+          <Row>
+            <Col span={12}>
+              <div
+                style={{
+                  marginRight: "10%",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "20%",
+                  height: "100%",
+                }}
+              >
+                <div>
+                  <p style={{ fontSize: "25px" }}>
+                    VXT KOREA 는 한국 시장의 가능성을 믿습니다. 현재 300명의
+                    인원을 파견하였고 5년이내 현재의 5배의 수치인 1500명을
+                    목표로 하고있습니다.
+                  </p>
+                </div>
+              </div>
+            </Col>
+            <Col span={12}>
+              <div style={{ height: 500 }}>
+                <BarChart />
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div>
+          <Row>
+            <Col span={12}>
+              <div
+                style={{
+                  marginRight: "10%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <div>
+                  <p>
+                    VXT KOREA는 글로벌 인재 양성을 위해 영어, 한국어, 일본어,
+                    그리고 독일어의 온라인 수업을 학생들에게 제공합니다.
+                  </p>
+                </div>
+              </div>
+            </Col>
+            <Col span={12}>
+              <div style={{ height: 500 }}>
+                <PieChart />
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <Button
+          onClick={() => {
+            setMailOpen(true);
+          }}
+          style={{ marginTop: "3%", marginLeft: "2%" }}
+        >
+          <MailOutlined
+            onClick={() => {
+              setMailOpen(true);
+            }}
+          />
+        </Button>
+        {/* <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button shape="round" onClick={scrollToTop}>
+            Scroll To Top <ArrowUpOutlined />
+          </Button>
+        </div> */}
       </div>
+      <MailModal
+        open={mailOpen}
+        onClose={() => {
+          setMailOpen(false);
+        }}
+      />
     </div>
   );
 }

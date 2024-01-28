@@ -1,9 +1,9 @@
 import { Col, Row } from "antd";
 import { motion } from "framer-motion";
-import circle1 from "../assets/circle1.png";
-import circle2 from "../assets/circle2.png";
-import circle3 from "../assets/circle3.png";
-import circle4 from "../assets/circle4.png";
+import circle1 from "../assets/img/circle1.png";
+import circle2 from "../assets/img/circle2.png";
+import circle3 from "../assets/img/circle3.png";
+import circle4 from "../assets/img/circle4.png";
 
 const imgStyle = {
   height: "300px",
@@ -28,78 +28,68 @@ const rowStyle = {
 
 function MainArea() {
   return (
-    <div>
+    <div style={{ fontFamily: "NanumSquareNeoHeavy" }}>
       <div>
         <div>
           <div
             style={{
-              background: "linear-gradient(to bottom,rgb(241,245,248),#FFFFFF)",
+              background: "transparent",
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1 },
-              }}
+              initial={{ x: 1000 }}
+              animate={{ x: 0 }}
+              transition={{ ease: "easeOut", duration: 1 }}
             >
               <Row style={rowStyle}>
-                <Col span={12} style={imgBoxStyle}>
-                  <img src={circle1} alt="" style={imgStyle} />
-                </Col>
-                <Col span={12} style={bubbleStyle}>
-                  <p style={{ marginRight: "10%" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Placeat quod nobis voluptates et eaque eligendi cum itaque
-                    facilis, maxime atque consectetur consequuntur laborum!
-                    Suscipit modi temporibus, quod impedit ex ratione.
-                  </p>
-                </Col>
-              </Row>
-            </motion.div>
-          </div>
-          <div
-            style={{
-              background: "linear-gradient(to bottom,#FFFD92,#FFFFFF)",
-            }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.5 },
-              }}
-            >
-              <Row style={rowStyle}>
-                <Col span={12} style={bubbleStyle}>
-                  <p style={{ marginLeft: "10%" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Placeat quod nobis voluptates et eaque eligendi cum itaque
-                    facilis, maxime atque consectetur consequuntur laborum!
-                    Suscipit modi temporibus, quod impedit ex ratione.
-                  </p>
-                </Col>
                 <Col span={12} style={imgBoxStyle}>
                   <img src={circle2} alt="" style={imgStyle} />
                 </Col>
+                <Col span={12} style={bubbleStyle}>
+                  <p style={{ marginRight: "10%" }}>
+                    전문직종(E-7-1): <br />
+                    기업 고위임원, 경영지원 관리자 등 관리자 15개 직종 <br />
+                    생명과학전문가, 해외영업원 등 전문가 52개 직종
+                  </p>
+                </Col>
               </Row>
+              <hr style={{ border: "2px solid gray" }} />
             </motion.div>
           </div>
           <div
             style={{
-              background:
-                "linear-gradient(to bottom, rgb(218,255,246),#FFFFFF)",
+              background: "transparent",
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.5 },
-              }}
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{ ease: "easeOut", duration: 1 }}
+            >
+              <Row style={rowStyle}>
+                <Col span={12} style={bubbleStyle}>
+                  <p style={{ marginLeft: "20%" }}>
+                    준전문직종(E-7-2): <br /> 의료코디네이터 등 사무종사자 5개
+                    직종 <br />
+                    주방장 및 조리사 등 서비스 종사자 4개 직종
+                  </p>
+                </Col>
+                <Col span={12} style={imgBoxStyle}>
+                  <img src={circle4} alt="" style={imgStyle} />
+                </Col>
+              </Row>
+              <hr style={{ border: "2px solid gray" }} />
+            </motion.div>
+          </div>
+          <div
+            style={{
+              background: "transparent",
+            }}
+          >
+            <motion.div
+              initial={{ x: 1000 }}
+              animate={{ x: 0 }}
+              transition={{ ease: "easeOut", duration: 1 }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={imgBoxStyle}>
@@ -107,40 +97,34 @@ function MainArea() {
                 </Col>
                 <Col span={12} style={bubbleStyle}>
                   <p style={{ marginRight: "10%" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Placeat quod nobis voluptates et eaque eligendi cum itaque
-                    facilis, maxime atque consectetur consequuntur laborum!
-                    Suscipit modi temporibus, quod impedit ex ratione.
+                    일반기능직종(E-7-3): <br /> 양식기술자 등 일반기능인력 8개
+                    직종
                   </p>
                 </Col>
               </Row>
+              <hr style={{ border: "2px solid gray" }} />
             </motion.div>
           </div>
           <div
             style={{
-              background:
-                "linear-gradient(to bottom, rgb(235,246,254),#FFFFFF)",
+              background: "transparent",
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.5 },
-              }}
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{ ease: "easeOut", duration: 1 }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={bubbleStyle}>
-                  <p style={{ marginLeft: "10%" }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Placeat quod nobis voluptates et eaque eligendi cum itaque
-                    facilis, maxime atque consectetur consequuntur laborum!
-                    Suscipit modi temporibus, quod impedit ex ratione.
+                  <p style={{ marginLeft: "20%" }}>
+                    숙련기능직종(E-7-4): <br /> 농림축산어업, 제조, 건설 등 분야{" "}
+                    <br />
+                    숙련기능인력 3개 직종
                   </p>
                 </Col>
                 <Col span={12} style={imgBoxStyle}>
-                  <img src={circle4} alt="" style={imgStyle} />
+                  <img src={circle1} alt="" style={imgStyle} />
                 </Col>
               </Row>
             </motion.div>

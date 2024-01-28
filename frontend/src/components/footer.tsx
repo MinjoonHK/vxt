@@ -18,7 +18,7 @@ function DashboardFooter() {
           </span>
           <span style={{ marginLeft: "30%" }}>
             <CopyrightOutlined />
-            VTX Korea All Rights Reserved
+            VXT Korea All Rights Reserved
           </span>
         </div>
       </Footer>
