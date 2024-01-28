@@ -8,7 +8,7 @@ export const data = {
   datasets: [
     {
       label: "파견 인원수:",
-      data: [345, 24, 51, 15],
+      data: [627, 42, 70, 10],
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",
@@ -25,7 +25,7 @@ export const data = {
   ],
 };
 
-export default function PieChart() {
+export default function PieChart2022() {
   const total = data.datasets[0].data.reduce((acc, curr) => acc + curr, 0);
 
   const options = {
@@ -56,7 +56,7 @@ export default function PieChart() {
         }}
       >
         <div style={{ fontWeight: "bold", fontSize: "15px" }}>
-          2021년 총 파견 인원수: 450명
+          2022년 총 파견 인원수: 850명
         </div>
       </div>
     </>

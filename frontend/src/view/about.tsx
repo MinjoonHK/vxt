@@ -7,9 +7,10 @@ import vtx3 from "../assets/img/vxt5.png";
 
 import { Col, Row } from "antd";
 import { ArrowUpOutlined, MailOutlined } from "@ant-design/icons";
-import MailModal from "./mailModal";
-import { BarChart } from "./barChart";
-import PieChart from "./pieChart2021";
+import MailModal from "../components/mailModal";
+import { BarChart } from "../components/barChart";
+import PieChart from "../components/pieChart2021";
+import PieChart2022 from "../components/pieChart2022";
 
 const contentStyle: React.CSSProperties = {
   margin: 0,
@@ -127,7 +128,7 @@ function About() {
                 }}
               >
                 <div>
-                  <p style={{ fontSize: "25px" }}>
+                  <p style={{ fontSize: "25px", fontWeight: "bold" }}>
                     VXT KOREA 는 한국 시장의 가능성을 믿습니다. 현재 300명의
                     인원을 파견하였고 5년이내 현재의 5배의 수치인 1500명을
                     목표로 하고있습니다.
@@ -142,7 +143,26 @@ function About() {
             </Col>
           </Row>
         </div>
-        <div>
+        <div
+          style={{ textAlign: "center", fontWeight: "bold", fontSize: "40px" }}
+        >
+          "성장하는 VXT"
+        </div>
+        <div style={{ marginLeft: "5%", marginTop: "5%" }}>
+          <Row>
+            <Col span={12}>
+              <div style={{ height: 500 }}>
+                <PieChart />
+              </div>
+            </Col>
+            <Col span={12}>
+              <div style={{ height: 500 }}>
+                <PieChart2022 />
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div style={{ marginTop: "20%" }}>
           <Row>
             <Col span={12}>
               <div
@@ -155,32 +175,57 @@ function About() {
                 }}
               >
                 <div>
-                  <p>
-                    VXT KOREA는 글로벌 인재 양성을 위해 영어, 한국어, 일본어,
-                    그리고 독일어의 온라인 수업을 학생들에게 제공합니다.
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontSize: "25px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    문의 및 건의 사항은 오른쪽 메일 버튼을 <br />
+                    클릭하여 메일을 보내주세요. <br />
+                    <br />
+                    여러분의 연락을 기다립니다.
                   </p>
                 </div>
               </div>
             </Col>
             <Col span={12}>
-              <div style={{ height: 500 }}>
-                <PieChart />
+              <div
+                style={{
+                  marginRight: "10%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <Button
+                  shape="round"
+                  size="large"
+                  onClick={() => {
+                    setMailOpen(true);
+                  }}
+                  style={{
+                    marginTop: "3%",
+                    marginLeft: "2%",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                    border: "2px solid black",
+                  }}
+                >
+                  클릭하여 메일 보내기
+                  <MailOutlined
+                    onClick={() => {
+                      setMailOpen(true);
+                    }}
+                  />
+                </Button>
               </div>
             </Col>
           </Row>
         </div>
-        <Button
-          onClick={() => {
-            setMailOpen(true);
-          }}
-          style={{ marginTop: "3%", marginLeft: "2%" }}
-        >
-          <MailOutlined
-            onClick={() => {
-              setMailOpen(true);
-            }}
-          />
-        </Button>
+
         {/* <div style={{ display: "flex", justifyContent: "center" }}>
           <Button shape="round" onClick={scrollToTop}>
             Scroll To Top <ArrowUpOutlined />

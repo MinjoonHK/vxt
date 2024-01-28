@@ -1,9 +1,9 @@
 import { Layout } from "antd";
 import { Route, Routes } from "react-router-dom";
-import About from "../components/about";
-import MainArea from "../components/mainArea";
-import TalentGrow from "../components/talentGrow";
-import PartnerCompany from "../components/partnerCompany";
+import About from "./about";
+import MainArea from "./mainArea";
+import TalentGrow from "./talentGrow";
+import PartnerCompany from "./partnerCompany";
 import DashboardFooter from "../components/footer";
 import Marquee from "react-fast-marquee";
 import DashBoardHeader from "../components/header";
