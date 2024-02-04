@@ -13,3 +13,6 @@ React.js 로 제작한 VXT KOREA 의 홈페이지 입니다.
   <li>IDE : VScode</li>
   <li>Deploy: AWS S3, AWS Cloud Front</li>
 </ul>
+
+### 🏠URL
+<a href="https://vxtkorea.net/">https://vxtkorea.net/</a>
