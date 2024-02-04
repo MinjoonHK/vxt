@@ -11,7 +11,7 @@ React.js 로 제작한 VXT KOREA 의 홈페이지 입니다.
 <ul>
   <li>React.js, TypeScript</li>
   <li>IDE : VScode</li>
-  <li>Deploy: AWS S3, AWS Cloud Front</li>
+  <li>Deploy: AWS S3, Cloud Front, Route53, Cafe24</li>
 </ul>
 
 ### 🏠URL
