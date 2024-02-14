@@ -1,9 +1,10 @@
 import { Col, Row } from "antd";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import square1 from "../assets/img/square1.jpg";
 import square2 from "../assets/img/square2.jpg";
 import square3 from "../assets/img/square3.jpg";
 import longSquare1 from "../assets/img/longSquare1.jpg";
+import { useRef } from "react";
 
 const bubbleStyle = {
   marginTop: "9%",
@@ -24,19 +25,27 @@ const rowStyle = {
 const ImportedImages = [square1, square2, square3];
 
 function TalentGrow() {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const isInView1 = useInView(ref1, { once: true });
+  const isInView2 = useInView(ref2, { once: true });
+
   return (
     <div>
       <div>
         <div>
-          <div
+          <section
+            ref={ref1}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView1 ? "none" : "translateX(-200px)",
+                opacity: isInView1 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={imgBoxStyle}>
@@ -57,17 +66,20 @@ function TalentGrow() {
                   </p>
                 </Col>
               </Row>
-            </motion.div>
-          </div>
-          <div
+            </div>
+          </section>
+          <section
+            ref={ref2}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: 1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView2 ? "none" : "translateX(200px)",
+                opacity: isInView2 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={bubbleStyle}>
@@ -100,8 +112,8 @@ function TalentGrow() {
                   </div>
                 </Col>
               </Row>
-            </motion.div>
-          </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>

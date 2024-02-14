@@ -1,9 +1,10 @@
 import { Col, Row } from "antd";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import circle1 from "../assets/img/circle1.png";
 import circle2 from "../assets/img/circle2.png";
 import circle3 from "../assets/img/circle3.png";
 import circle4 from "../assets/img/circle4.png";
+import { useRef } from "react";
 
 const imgStyle = {
   height: "300px",
@@ -27,19 +28,32 @@ const rowStyle = {
 };
 
 function MainArea() {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+
+  const isInView1 = useInView(ref1, { once: true });
+  const isInView2 = useInView(ref2, { once: true });
+  const isInView3 = useInView(ref3, { once: true });
+  const isInView4 = useInView(ref4, { once: true });
+
   return (
     <div style={{ fontFamily: "NanumSquareNeoHeavy" }}>
       <div>
         <div>
-          <div
+          <section
+            ref={ref1}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: 1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView1 ? "none" : "translateX(-200px)",
+                opacity: isInView1 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={imgBoxStyle}>
@@ -54,17 +68,20 @@ function MainArea() {
                 </Col>
               </Row>
               <hr style={{ border: "2px solid gray" }} />
-            </motion.div>
-          </div>
-          <div
+            </div>
+          </section>
+          <section
+            ref={ref2}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView2 ? "none" : "translateX(200px)",
+                opacity: isInView2 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={bubbleStyle}>
@@ -79,17 +96,20 @@ function MainArea() {
                 </Col>
               </Row>
               <hr style={{ border: "2px solid gray" }} />
-            </motion.div>
-          </div>
-          <div
+            </div>
+          </section>
+          <section
+            ref={ref3}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: 1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView3 ? "none" : "translateX(-200px)",
+                opacity: isInView3 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={imgBoxStyle}>
@@ -103,17 +123,20 @@ function MainArea() {
                 </Col>
               </Row>
               <hr style={{ border: "2px solid gray" }} />
-            </motion.div>
-          </div>
-          <div
+            </div>
+          </section>
+          <section
+            ref={ref4}
             style={{
               background: "transparent",
             }}
           >
-            <motion.div
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "easeOut", duration: 1 }}
+            <div
+              style={{
+                transform: isInView4 ? "none" : "translateX(200px)",
+                opacity: isInView4 ? 1 : 0,
+                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)",
+              }}
             >
               <Row style={rowStyle}>
                 <Col span={12} style={bubbleStyle}>
@@ -127,8 +150,8 @@ function MainArea() {
                   <img src={circle1} alt="" style={imgStyle} />
                 </Col>
               </Row>
-            </motion.div>
-          </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
