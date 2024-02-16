@@ -9,9 +9,9 @@ React.js 로 제작한 VXT KOREA 의 홈페이지 입니다.
 
 ### ⚙️ 개발 환경
 <ul>
-  <li>React.js, TypeScript</li>
+  <li>React.js, Node.js, TypeScript</li>
   <li>IDE : VScode</li>
-  <li>Deploy: AWS S3, Cloud Front, Route53, Cafe24</li>
+  <li>Deploy: AWS S3, EC2, Cloud Front, Route53, Cafe24</li>
 </ul>
 
 ### 🏠URL
