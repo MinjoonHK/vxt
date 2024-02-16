@@ -24,4 +24,4 @@ React.js 로 제작한 VXT KOREA 의 홈페이지 입니다.
 
 ### -배포
 #### 💻Code
-<a href="[https://github.com/MinjoonHK/Management_system/wiki/Management-System-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5-%E2%80%90-%EB%A1%9C%EA%B7%B8%EC%9D%B8](https://github.com/MinjoonHK/vxt/wiki/vxtKorea-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5-%E2%80%90-EC2-%EB%B0%B0%ED%8F%AC)https://github.com/MinjoonHK/vxt/wiki/vxtKorea-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5-%E2%80%90-EC2-%EB%B0%B0%ED%8F%AC">위키로 이동</a>
+<a href="https://github.com/MinjoonHK/vxt/wiki/vxtKorea-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5-%E2%80%90-EC2-%EB%B0%B0%ED%8F%AC">위키로 이동</a>
