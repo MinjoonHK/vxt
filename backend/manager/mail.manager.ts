@@ -4,7 +4,8 @@ import fs from "fs";
 
 dotenv.config();
 
-const { email_service, email_user, email_pass } = process.env;
+const { email_service, email_user, email_pass, email_destination } =
+  process.env;
 
 const transporter = nodemailer.createTransport({
   service: email_service,
@@ -21,7 +22,7 @@ export const sendEmail = async (props: any) => {
   });
   const info = await transporter.sendMail({
     from: email_user, // sender address
-    to: "17078812D@connect.polyu.hk",
+    to: email_destination,
     subject: "vxtKorea 문의메일",
     html: html,
   });

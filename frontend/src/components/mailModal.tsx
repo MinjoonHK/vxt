@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 import Swal from "sweetalert2";
 import TextArea from "antd/es/input/TextArea";
@@ -12,17 +12,16 @@ function MailModal({ open, onClose }) {
     setIsModalOpen(false);
   };
 
-  const onFinish = async ({ input, message }) => {
+  const onFinish = async ({ email, message }) => {
     try {
       const res = await axios.post("/mail/send", {
-        input,
+        email,
         message,
       });
       if (res.status === 200) {
         form.resetFields(); // 필드 초기화
         Swal.fire({
-          title: "Good job!",
-          text: "You clicked the button!",
+          text: "이메일이 성공적으로 발송되었습니다!",
           icon: "success",
         });
         onClose();
@@ -39,16 +38,14 @@ function MailModal({ open, onClose }) {
   return (
     <>
       <Modal
-        title="To: Example.com"
+        title="To: sungwook@vxtkorea.com"
         open={open}
         onOk={handleOk}
         onCancel={onClose}
         width={800}
         footer={[
-          <Button key="cancel" onClick={onClose}>
-            Cancel
-          </Button>,
           <Button
+            style={{ backgroundColor: "rgb(45,27,109)" }}
             htmlType="submit"
             key="submit"
             type="primary"
@@ -64,11 +61,24 @@ function MailModal({ open, onClose }) {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <Form.Item name="input">
-            <Input placeholder="Your Email Address" />
+          <Form.Item
+            rules={[
+              { type: "email", message: "올바른 이메일 주소를 입력해 주세요!" },
+              { required: true, message: "이메일을 입력해 주세요!" },
+            ]}
+            name="email"
+          >
+            <Input placeholder="이메일을 입력해 주세요" />
           </Form.Item>
-          <Form.Item name="message">
-            <TextArea rows={7} placeholder="Message" maxLength={6} />
+          <Form.Item
+            rules={[{ required: true, message: "내용을 입력해 주세요!" }]}
+            name="message"
+          >
+            <TextArea
+              rows={7}
+              placeholder="내용을 입력해 주세요"
+              maxLength={500}
+            />
           </Form.Item>
         </Form>
       </Modal>

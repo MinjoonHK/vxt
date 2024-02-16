@@ -60,6 +60,7 @@ function PartnerCompany() {
         {importedImages.map((image, idx) => {
           return (
             <div
+              key={idx}
               className="flipContainer"
               style={{
                 width: "30%",
@@ -71,6 +72,7 @@ function PartnerCompany() {
               }}
             >
               <div
+                key={idx + "Front"}
                 className="item front"
                 style={{
                   backgroundImage: `url(${image})`,
@@ -85,6 +87,7 @@ function PartnerCompany() {
                 }}
               ></div>
               <div
+                key={idx + "Back"}
                 className="item back"
                 style={{
                   border: "2px solid rgb(59,130,546)",
@@ -115,9 +118,10 @@ function PartnerCompany() {
           margin: "0 5% ",
         }}
       >
-        {importedPartenrs.map((image) => {
+        {importedPartenrs.map((image, idx) => {
           return (
             <div
+              key={idx}
               style={{
                 width: "25%",
                 marginBottom: "5%",

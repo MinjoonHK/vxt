@@ -96,9 +96,10 @@ function TalentGrow() {
                       width: "700px",
                     }}
                   >
-                    {ImportedImages.map((image) => {
+                    {ImportedImages.map((image, idx) => {
                       return (
                         <img
+                          key={idx}
                           src={image}
                           alt="image not Found"
                           style={{

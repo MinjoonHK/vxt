@@ -6,10 +6,8 @@ import bodyParser from "body-parser";
 
 const app: Express = express();
 
-let corsOptions = {
-  origin: (origin: any, callback: any) => {
-    callback(null, true);
-  },
+const corsOptions = {
+  origin: ["https://vxtkorea.net"],
 };
 
 app.use(bodyParser.json());

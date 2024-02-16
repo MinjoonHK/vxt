@@ -73,6 +73,7 @@ const DashBoardHeader = () => {
         {links.map((link, idx) => {
           return (
             <motion.div
+              key={idx}
               whileHover={{ scale: 1.2 }}
               onHoverStart={(e) => {}}
               onHoverEnd={(e) => {}}

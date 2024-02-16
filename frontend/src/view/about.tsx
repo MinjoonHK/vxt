@@ -36,9 +36,9 @@ function About() {
   return (
     <div>
       <Carousel autoplay={true} dots={false}>
-        {importedImages.map((images) => {
+        {importedImages.map((images, idx) => {
           return (
-            <div>
+            <div key={idx}>
               <h3 style={contentStyle}>
                 <img style={{ height: "450px", width: "100%" }} src={images} />
               </h3>
@@ -161,7 +161,7 @@ function About() {
             </Col>
           </Row>
         </section>
-        <div style={{ marginTop: "20%" }}>
+        <section style={{ marginTop: "15%", marginLeft: "5%" }}>
           <Row>
             <Col span={12}>
               <div
@@ -223,7 +223,7 @@ function About() {
               </div>
             </Col>
           </Row>
-        </div>
+        </section>
       </div>
       <MailModal
         open={mailOpen}
