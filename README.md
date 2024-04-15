@@ -23,32 +23,38 @@ React.js 와 Express.js 로 제작한 VXT KOREA 의 홈페이지 입니다.
 
   <details>
     <summary>대문 페이지</summary>
+    
     ![vxt1](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/a383001d-619c-4103-a6c2-a09b73a41104)
 
   </details>
 
   <details>
     <summary>표1</summary>
+    
     ![vxt2](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/dccc8a9e-d84d-49c3-a462-f8b05ff72c39)
   </details>
 
   <details>
     <summary>표2</summary>
+    
     ![vxt3](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/fc8dd1ed-8618-434b-a4e3-4cb63c8c2396)
   </details>
 
   <details>
     <summary>협력사1</summary>
+    
     ![vxr4](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/b4561ecc-c202-40d3-835d-008ff181d325)
   </details>
 
   <details>
     <summary>협력사2</summary>
+    
     ![vxt5](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/db2ddcac-f8f4-4120-8936-584eae32bf3b)
   </details>
 
   <details>
     <summary>이메일</summary>
+    
     ![vxtEmail](https://github.com/MinjoonHK/AlgoLog_Reboot/assets/108560916/f675cbc9-e591-40f7-9592-f7cf884a1568)
   </details>
 </details>
